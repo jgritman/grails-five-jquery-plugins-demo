@@ -59,6 +59,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${courseInstance?.partner}">
+				<li class="fieldcontain">
+					<span id="partner-label" class="property-label"><g:message code="course.partner.label" default="Partner" /></span>
+					
+						<span class="property-value" aria-labelledby="partner-label"><g:link controller="partner" action="show" id="${courseInstance?.partner?.id}">${courseInstance?.partner?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${courseInstance?.classes}">
 				<li class="fieldcontain">
 					<span id="classes-label" class="property-label"><g:message code="course.classes.label" default="Classes" /></span>

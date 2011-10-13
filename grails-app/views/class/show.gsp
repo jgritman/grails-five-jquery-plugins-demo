@@ -23,6 +23,15 @@
 			</g:if>
 			<ol class="property-list class">
 			
+				<g:if test="${classInstance?.course}">
+				<li class="fieldcontain">
+					<span id="course-label" class="property-label"><g:message code="class.course.label" default="Course" /></span>
+					
+						<span class="property-value" aria-labelledby="course-label"><g:link controller="course" action="show" id="${classInstance?.course?.id}">${classInstance?.course?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${classInstance?.priceAdjustment}">
 				<li class="fieldcontain">
 					<span id="priceAdjustment-label" class="property-label"><g:message code="class.priceAdjustment.label" default="Price Adjustment" /></span>

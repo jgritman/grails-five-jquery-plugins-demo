@@ -41,6 +41,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${partnerInstance?.website}">
+				<li class="fieldcontain">
+					<span id="website-label" class="property-label"><g:message code="partner.website.label" default="Website" /></span>
+					
+						<span class="property-value" aria-labelledby="website-label"><g:fieldValue bean="${partnerInstance}" field="website"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${partnerInstance?.courses}">
 				<li class="fieldcontain">
 					<span id="courses-label" class="property-label"><g:message code="partner.courses.label" default="Courses" /></span>
@@ -48,15 +57,6 @@
 						<g:each in="${partnerInstance.courses}" var="c">
 						<span class="property-value" aria-labelledby="courses-label"><g:link controller="course" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
 						</g:each>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${partnerInstance?.website}">
-				<li class="fieldcontain">
-					<span id="website-label" class="property-label"><g:message code="partner.website.label" default="Website" /></span>
-					
-						<span class="property-value" aria-labelledby="website-label"><g:fieldValue bean="${partnerInstance}" field="website"/></span>
 					
 				</li>
 				</g:if>

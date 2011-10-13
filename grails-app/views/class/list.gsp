@@ -24,6 +24,8 @@
 				<thead>
 					<tr>
 					
+						<th><g:message code="class.course.label" default="Course" /></th>
+					
 						<g:sortableColumn property="priceAdjustment" title="${message(code: 'class.priceAdjustment.label', default: 'Price Adjustment')}" />
 					
 						<g:sortableColumn property="startDate" title="${message(code: 'class.startDate.label', default: 'Start Date')}" />
@@ -34,7 +36,9 @@
 				<g:each in="${classInstanceList}" status="i" var="classInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${classInstance.id}">${fieldValue(bean: classInstance, field: "priceAdjustment")}</g:link></td>
+						<td><g:link action="show" id="${classInstance.id}">${fieldValue(bean: classInstance, field: "course")}</g:link></td>
+					
+						<td>${fieldValue(bean: classInstance, field: "priceAdjustment")}</td>
 					
 						<td><g:formatDate date="${classInstance.startDate}" /></td>
 					

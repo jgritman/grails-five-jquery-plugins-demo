@@ -32,6 +32,8 @@
 					
 						<g:sortableColumn property="days" title="${message(code: 'course.days.label', default: 'Days')}" />
 					
+						<th><g:message code="course.partner.label" default="Partner" /></th>
+					
 					</tr>
 				</thead>
 				<tbody>
@@ -45,6 +47,8 @@
 						<td>${fieldValue(bean: courseInstance, field: "basePrice")}</td>
 					
 						<td>${fieldValue(bean: courseInstance, field: "days")}</td>
+					
+						<td>${fieldValue(bean: courseInstance, field: "partner")}</td>
 					
 					</tr>
 				</g:each>

@@ -2,6 +2,14 @@
 
 
 
+<div class="fieldcontain ${hasErrors(bean: classInstance, field: 'course', 'error')} required">
+	<label for="course">
+		<g:message code="class.course.label" default="Course" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="course" name="course.id" from="${com.grittycoding.demo.Course.list()}" optionKey="id" required="" value="${classInstance?.course?.id}" class="many-to-one"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: classInstance, field: 'priceAdjustment', 'error')} required">
 	<label for="priceAdjustment">
 		<g:message code="class.priceAdjustment.label" default="Price Adjustment" />
