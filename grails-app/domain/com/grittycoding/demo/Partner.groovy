@@ -9,5 +9,7 @@ class Partner {
 	static hasMany = [courses:Course]
 
     static constraints = {
+    	name maxSize: 40
+    	description maxSize: 1000
     }
 }
