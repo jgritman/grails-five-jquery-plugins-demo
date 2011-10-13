@@ -1,3 +1,5 @@
 .DS_Store
 plugins/core/
 web-app/WEB-INF
+*.class
+*.log
