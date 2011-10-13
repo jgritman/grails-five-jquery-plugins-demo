@@ -1,6 +1,6 @@
 .DS_Store
 plugins/core/
-web-app/WEB-INF
+web-app/WEB-INF/tld
 *.class
 *.log
 target
