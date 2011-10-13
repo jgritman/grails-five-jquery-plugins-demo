@@ -17,7 +17,7 @@
 		if (!isMoney(value, element)) {
 			return false;
 		}
-		var firstChar = $(element).val().substring(0,0);
+		var firstChar = $(element).val().substring(0,1);
 		return firstChar != '(' && firstChar != '-';
 	}, "Please enter a positive dollar amount.");
 	

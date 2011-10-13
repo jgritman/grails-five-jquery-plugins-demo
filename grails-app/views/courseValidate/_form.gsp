@@ -5,6 +5,7 @@
 <r:script disposition="head">
     $(function() {
     	$('form').validate();
+    	$('#days').rules('add', {min:1});
     });
 </r:script>
 
@@ -37,7 +38,7 @@
 		<g:message code="course.days.label" default="Days" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field type="number" name="days" class="required" value="${fieldValue(bean: courseInstance, field: 'days')}"/>
+	<g:field type="number" name="days" id="days" class="required" value="${fieldValue(bean: courseInstance, field: 'days')}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: courseInstance, field: 'partner', 'error')} ">
