@@ -23,11 +23,11 @@
 			</g:if>
 			<ol class="property-list course">
 			
-				<g:if test="${courseInstance?.basePrice}">
+				<g:if test="${courseInstance?.name}">
 				<li class="fieldcontain">
-					<span id="basePrice-label" class="property-label"><g:message code="course.basePrice.label" default="Base Price" /></span>
+					<span id="name-label" class="property-label"><g:message code="course.name.label" default="Name" /></span>
 					
-						<span class="property-value" aria-labelledby="basePrice-label"><g:fieldValue bean="${courseInstance}" field="basePrice"/></span>
+						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${courseInstance}" field="name"/></span>
 					
 				</li>
 				</g:if>
@@ -41,20 +41,31 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${courseInstance?.length}">
+				<g:if test="${courseInstance?.basePrice}">
 				<li class="fieldcontain">
-					<span id="length-label" class="property-label"><g:message code="course.length.label" default="Length" /></span>
+					<span id="basePrice-label" class="property-label"><g:message code="course.basePrice.label" default="Base Price" /></span>
 					
-						<span class="property-value" aria-labelledby="length-label"><g:fieldValue bean="${courseInstance}" field="length"/></span>
+						<span class="property-value" aria-labelledby="basePrice-label"><g:fieldValue bean="${courseInstance}" field="basePrice"/></span>
 					
 				</li>
 				</g:if>
 			
-				<g:if test="${courseInstance?.name}">
+				<g:if test="${courseInstance?.days}">
 				<li class="fieldcontain">
-					<span id="name-label" class="property-label"><g:message code="course.name.label" default="Name" /></span>
+					<span id="days-label" class="property-label"><g:message code="course.days.label" default="Days" /></span>
 					
-						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${courseInstance}" field="name"/></span>
+						<span class="property-value" aria-labelledby="days-label"><g:fieldValue bean="${courseInstance}" field="days"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${courseInstance?.classes}">
+				<li class="fieldcontain">
+					<span id="classes-label" class="property-label"><g:message code="course.classes.label" default="Classes" /></span>
+					
+						<g:each in="${courseInstance.classes}" var="c">
+						<span class="property-value" aria-labelledby="classes-label"><g:link controller="class" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>

@@ -2,12 +2,12 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: courseInstance, field: 'basePrice', 'error')} required">
-	<label for="basePrice">
-		<g:message code="course.basePrice.label" default="Base Price" />
-		<span class="required-indicator">*</span>
+<div class="fieldcontain ${hasErrors(bean: courseInstance, field: 'name', 'error')} ">
+	<label for="name">
+		<g:message code="course.name.label" default="Name" />
+		
 	</label>
-	<g:field type="number" name="basePrice" required="" value="${fieldValue(bean: courseInstance, field: 'basePrice')}"/>
+	<g:textField name="name" maxlength="40" value="${courseInstance?.name}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: courseInstance, field: 'description', 'error')} ">
@@ -15,22 +15,30 @@
 		<g:message code="course.description.label" default="Description" />
 		
 	</label>
-	<g:textField name="description" value="${courseInstance?.description}"/>
+	<g:textArea name="description" cols="40" rows="5" maxlength="1000" value="${courseInstance?.description}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: courseInstance, field: 'length', 'error')} required">
-	<label for="length">
-		<g:message code="course.length.label" default="Length" />
+<div class="fieldcontain ${hasErrors(bean: courseInstance, field: 'basePrice', 'error')} required">
+	<label for="basePrice">
+		<g:message code="course.basePrice.label" default="Base Price" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field type="number" name="length" required="" value="${fieldValue(bean: courseInstance, field: 'length')}"/>
+	<g:field type="number" name="basePrice" min="0.0" required="" value="${fieldValue(bean: courseInstance, field: 'basePrice')}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: courseInstance, field: 'name', 'error')} ">
-	<label for="name">
-		<g:message code="course.name.label" default="Name" />
+<div class="fieldcontain ${hasErrors(bean: courseInstance, field: 'days', 'error')} required">
+	<label for="days">
+		<g:message code="course.days.label" default="Days" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:field type="number" name="days" min="1" required="" value="${fieldValue(bean: courseInstance, field: 'days')}"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: courseInstance, field: 'classes', 'error')} ">
+	<label for="classes">
+		<g:message code="course.classes.label" default="Classes" />
 		
 	</label>
-	<g:textField name="name" value="${courseInstance?.name}"/>
+	<g:select name="classes" from="${com.grittycoding.demo.Class.list()}" multiple="multiple" optionKey="id" size="5" value="${courseInstance?.classes*.id}" class="many-to-many"/>
 </div>
 
