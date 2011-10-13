@@ -1,6 +1,7 @@
 package com.grittycoding.demo
 
 import org.springframework.dao.DataIntegrityViolationException
+import java.text.NumberFormat
 
 class CourseValidateController {
 
@@ -15,6 +16,7 @@ class CourseValidateController {
     }
 
     def save() {
+        params.basePrice = NumberFormat.getCurrencyInstance(Locale.US).parse(params.basePrice)
         def courseInstance = new Course(params)
         if (!courseInstance.save(flush: true)) {
             render(view: "create", model: [courseInstance: courseInstance])
@@ -26,63 +28,8 @@ class CourseValidateController {
     }
 
     def show() {
-        def courseInstance = Course.get(params.id)
-        if (!courseInstance) {
-			flash.message = message(code: 'default.not.found.message', args: [message(code: 'course.label', default: 'Course'), params.id])
-            redirect(action: "list")
-            return
-        }
-
-        [courseInstance: courseInstance]
+        [courseInstance: Course.get(params.id)]
     }
 
 
-    def update() {
-        def courseInstance = Course.get(params.id)
-        if (!courseInstance) {
-            flash.message = message(code: 'default.not.found.message', args: [message(code: 'course.label', default: 'Course'), params.id])
-            redirect(action: "list")
-            return
-        }
-
-        if (params.version) {
-            def version = params.version.toLong()
-            if (courseInstance.version > version) {
-                courseInstance.errors.rejectValue("version", "default.optimistic.locking.failure",
-                          [message(code: 'course.label', default: 'Course')] as Object[],
-                          "Another user has updated this Course while you were editing")
-                render(view: "edit", model: [courseInstance: courseInstance])
-                return
-            }
-        }
-
-        courseInstance.properties = params
-
-        if (!courseInstance.save(flush: true)) {
-            render(view: "edit", model: [courseInstance: courseInstance])
-            return
-        }
-
-		flash.message = message(code: 'default.updated.message', args: [message(code: 'course.label', default: 'Course'), courseInstance.id])
-        redirect(action: "show", id: courseInstance.id)
-    }
-
-    def delete() {
-        def courseInstance = Course.get(params.id)
-        if (!courseInstance) {
-			flash.message = message(code: 'default.not.found.message', args: [message(code: 'course.label', default: 'Course'), params.id])
-            redirect(action: "list")
-            return
-        }
-
-        try {
-            courseInstance.delete(flush: true)
-			flash.message = message(code: 'default.deleted.message', args: [message(code: 'course.label', default: 'Course'), params.id])
-            redirect(action: "list")
-        }
-        catch (DataIntegrityViolationException e) {
-			flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'course.label', default: 'Course'), params.id])
-            redirect(action: "show", id: params.id)
-        }
-    }
 }

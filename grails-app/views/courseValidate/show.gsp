@@ -12,7 +12,6 @@
 		<div class="nav" role="navigation">
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
@@ -59,6 +58,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${courseInstance?.partner}">
+				<li class="fieldcontain">
+					<span id="partner-label" class="property-label"><g:message code="course.partner.label" default="Partner" /></span>
+					
+						<span class="property-value" aria-labelledby="partner-label"><g:link controller="partner" action="show" id="${courseInstance?.partner?.id}">${courseInstance?.partner?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${courseInstance?.classes}">
 				<li class="fieldcontain">
 					<span id="classes-label" class="property-label"><g:message code="course.classes.label" default="Classes" /></span>
@@ -71,13 +79,7 @@
 				</g:if>
 			
 			</ol>
-			<g:form>
-				<fieldset class="buttons">
-					<g:hiddenField name="id" value="${courseInstance?.id}" />
-					<g:link class="edit" action="edit" id="${courseInstance?.id}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-				</fieldset>
-			</g:form>
 		</div>
 	</body>
 </html>
+s
