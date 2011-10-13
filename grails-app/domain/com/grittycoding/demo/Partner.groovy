@@ -4,12 +4,16 @@ class Partner {
 
 	String name
 	String description
-	URL website
-
+	String website 
 	static hasMany = [courses:Course]
 
     static constraints = {
-    	name maxSize: 40
+    	name maxSize: 50, nullable:false
     	description maxSize: 1000
+    	website url:true
+    }
+
+    String toString() {
+    	name
     }
 }

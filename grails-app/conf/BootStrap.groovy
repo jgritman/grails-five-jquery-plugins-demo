@@ -4,11 +4,11 @@ class BootStrap {
 
     def init = { servletContext ->
 
-    	def vmware = new Partner(name:"SpringSource",description:"Creator of the Spring Framework and related technologies.",website:new URL("http://springsource.com")).save()
-    	def engineyard = new Partner(name:"Engine Yard",description:"Engine Yard has created a Ruby on Rails curriculum and we are partnering to deliver this training in our area.",website:new URL("http://www.engineyard.com")).save()
-    	def typesafe = new Partner(name:"Typesafe",description:"Enterprise-Grade Scala from the Experts: Typesafe was founded in 2011 by the creators of the Scala programming language and Akka middleware, who joined forces to create a modern software platform for the era of multicore hardware and cloud computing workloads.",website:new URL("http://www.typesafe.com")).save()
+    	def vmware = new Partner(name:"SpringSource",description:"Creator of the Spring Framework and related technologies.",website:"http://springsource.com").save()
+    	def engineyard = new Partner(name:"Engine Yard",description:"Engine Yard has created a Ruby on Rails curriculum and we are partnering to deliver this training in our area.",website:"http://www.engineyard.com").save()
+    	def typesafe = new Partner(name:"Typesafe",description:"Enterprise-Grade Scala from the Experts: Typesafe was founded in 2011 by the creators of the Scala programming language and Akka middleware, who joined forces to create a modern software platform for the era of multicore hardware and cloud computing workloads.",website:"http://www.typesafe.com").save()
 
-    	def coreSpring = new Course(name:"Core Spring Developer Training/Certification",description:"Intensive introduction to the Spring 3.0 Framework.",days:4,basePrice:2790, partner:vmware).save()
+    	def coreSpring = new Course(name:'Core Spring Developer Training/Certification',description:"Intensive introduction to the Spring 3.0 Framework.",days:4,basePrice:2790, partner:vmware).save()
 
     	def hibernateCourse = new Course(name:"Hibernate with Spring",description:"Learn to build ORM-based applications with Spring and the Hibernate ORM API. ",days:4,basePrice:2090,partner:vmware).save()
 
