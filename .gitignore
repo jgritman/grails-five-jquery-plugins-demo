@@ -3,3 +3,4 @@ plugins/core/
 web-app/WEB-INF
 *.class
 *.log
+target
