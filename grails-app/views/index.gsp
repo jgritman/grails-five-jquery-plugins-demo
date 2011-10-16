@@ -108,7 +108,8 @@
 					<li class="controller"><g:link controller="course">Course Scaffold (no jQuery)</g:link></li>
 					<li class="controller"><g:link controller="partnerin">Partner Scaffold (no jQuery)</g:link></li>
 					<li class="controller"><g:link controller="courseValidate">Insert Course with jQuery validator</g:link></li>
-					<li class="controller"><g:link controller="courseDataTable">Course List with Data Tables</g:link></li>					
+					<li class="controller"><g:link controller="courseDataTable">Course List with DataTables</g:link></li>		
+					<li class="controller"><g:link controller="classFullCalendar">Class Calendar with FullCalendar</g:link></li>					
 				</ul>
 			</div>
 		</div>
