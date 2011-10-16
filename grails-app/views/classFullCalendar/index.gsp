@@ -10,10 +10,22 @@
 
 		<r:script disposition="head">
 		    $(function() {
-				$.getJSON("../classFullCalendar/events", function(events) {
+		    	var baseUrl = "../classFullCalendar/";
+				$.getJSON(baseUrl + "events", function(events) {
 			    	$('#calendar').fullCalendar({
 			    		theme: true,
-			    		events: events
+			    		editable: true,
+			    		disableResizing: true,
+			    		events: events,
+			    		    eventDrop: function(event,dayDelta,minuteDelta,allDay,revertFunc) {
+			    		    	$.post(baseUrl + "updateEvent", {id:event.id,dateDiff:dayDelta}, function(data) {
+			    		    		if (data != 'OK') {
+			    		    			alert("An error has occured");
+			    		    			revertFunc();
+			    		    		}
+			    		    	});
+
+						    }
 			    	});
 				});
 		    });
