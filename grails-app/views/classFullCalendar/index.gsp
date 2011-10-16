@@ -10,7 +10,7 @@
 
 		<r:script disposition="head">
 		    $(function() {
-				$.getJSON("classFullCalendar/events", function(events) {
+				$.getJSON("../classFullCalendar/events", function(events) {
 			    	$('#calendar').fullCalendar({
 			    		theme: true,
 			    		events: events
