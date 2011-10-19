@@ -5,6 +5,8 @@
 		<title>Full Calendar demo with Grails</title>
 	</head>
 	<body>
+		
+		<h1>FullCalendar with drag and drop support</h1>
 
 		<r:require module="fullcalendar"/>
 
