@@ -1,8 +1,10 @@
 package com.grittycoding.demo
 
-import grails.converters.*;
+import grails.converters.*
 
 class ClassFullCalendarController {
+
+    static allowedMethods = [updateEvent: "POST"]
 
     def index() { 
     }
