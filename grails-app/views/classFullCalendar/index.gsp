@@ -12,15 +12,14 @@
 
 		<r:script disposition="head">
 		    $(function() {
-		    	var baseUrl = "../classFullCalendar/";
-				$.getJSON(baseUrl + "events", function(events) {
+				$.getJSON("${createLink(action:'events')}", function(events) {
 			    	$('#calendar').fullCalendar({
 			    		theme: true,
 			    		editable: true,
 			    		disableResizing: true,
 			    		events: events,
 			    		    eventDrop: function(event,dayDelta,minuteDelta,allDay,revertFunc) {
-			    		    	$.post(baseUrl + "updateEvent", {id:event.id,dateDiff:dayDelta}, function(data) {
+			    		    	$.post("${createLink(action:'updateEvent')}", {id:event.id,dateDiff:dayDelta}, function(data) {
 			    		    		if (data != 'OK') {
 			    		    			alert("An error has occured");
 			    		    			revertFunc();
