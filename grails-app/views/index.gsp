@@ -110,6 +110,7 @@
 					<li class="controller"><g:link controller="courseValidate">Insert Course with jQuery validator</g:link></li>
 					<li class="controller"><g:link controller="courseDataTable">Course List with DataTables</g:link></li>		
 					<li class="controller"><g:link controller="classFullCalendar">Class Calendar with FullCalendar</g:link></li>					
+					<li class="controller"><g:link controller="partnerDynatree">Partner tree with Dynatree</g:link></li>										
 				</ul>
 			</div>
 		</div>
