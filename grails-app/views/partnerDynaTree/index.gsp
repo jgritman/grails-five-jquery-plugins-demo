@@ -12,7 +12,7 @@
 		    $(function() {
 		    	$("#tree").dynatree({
 		    	    initAjax: {
-				        url: "../partnerDynatree/treeData"
+				        url: "${createLink(action:'treeData')}"
         			}
 		    	});
 		    });
