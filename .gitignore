@@ -4,3 +4,4 @@ web-app/WEB-INF/tld
 *.class
 *.log
 target
+static
