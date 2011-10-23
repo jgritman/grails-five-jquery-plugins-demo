@@ -7,8 +7,10 @@ class PartnerDynatreeController {
     def index() { }
 
     def treeData() {
-
-    	render Partner.list().collect {
+    	def partners = Partner.createCriteria().list{
+    		join 'courses.classes'
+    	}
+    	render partners.collect {
     		[title:it.name, children: coursesChildren(it)]
 	    } as JSON    	
     }
