@@ -1,0 +1,1 @@
+Demo code of a Grails 2.0 application using some popular jQuery plugins.  The presentation associated with this code is available [here](http://jgritman.github.com/grails-five-jquery-plugins/#1).
